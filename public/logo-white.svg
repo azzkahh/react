@@ -1,5 +1,21 @@
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M24 4L44 16V32L24 44L4 32V16L24 4Z" fill="#FFFFFF" />
-  <path d="M24 12L36 19V33L24 40L12 33V19L24 12Z" fill="#4B6F43" opacity="0.3" />
-  <path d="M24 20L28 22V30L24 32L20 30V22L24 20Z" fill="#FFFFFF" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 350">
+  <!-- Main dome outline -->
+  <path fill="#FFFFFF" d="M150 10c-60 0-110 50-140 110l30 20c0 0 20-40 50-40c30 0 40 0 60 0s30 40 60 40c30 0 50-40 50-40l30-20C260 60 210 10 150 10z"/>
+  
+  <!-- Inner dome detail -->
+  <path fill="#FFFFFF" d="M150 50c-40 0-70 30-90 70l20 10c0 0 10-30 30-30s30 0 40 0s20 30 40 30s30-30 30-30l20-10C220 80 190 50 150 50z"/>
+  
+  <!-- Main pillars -->
+  <path fill="#FFFFFF" d="M90 130c-10 0-15 5-15 15v150c0 10 5 15 15 15s15-5 15-15V145c0-10-5-15-15-15z"/>
+  <path fill="#FFFFFF" d="M150 130c-10 0-15 5-15 15v100c0 10 5 15 15 15s15-5 15-15V145c0-10-5-15-15-15z"/>
+  <path fill="#FFFFFF" d="M210 130c-10 0-15 5-15 15v150c0 10 5 15 15 15s15-5 15-15V145c0-10-5-15-15-15z"/>
+  
+  <!-- Right drip -->
+  <path fill="#FFFFFF" d="M250 145c-5 0-10 5-10 10v80c0 5 5 10 10 10s10-5 10-10v-80c0-5-5-10-10-10z"/>
+  <circle fill="#FFFFFF" cx="250" cy="260" r="8"/>
+  
+  <!-- Dots at the bottom -->
+  <circle fill="#FFFFFF" cx="90" cy="330" r="10"/>
+  <circle fill="#FFFFFF" cx="150" cy="265" r="10"/>
+  <circle fill="#FFFFFF" cx="210" cy="330" r="10"/>
 </svg> 

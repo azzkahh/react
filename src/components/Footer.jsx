@@ -1,165 +1,146 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer id="implementation" className="bg-primary text-white">
-      {/* Top Wave */}
-      <div className="overflow-hidden leading-none">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-          className="w-full h-16 text-white"
-        >
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C0,0,0,32,0,48C0,67.52,22.75,74.55,48.51,77.32,108.71,84.43,187.93,67.08,252,49.9,293.09,39.24,280.88,55.59,321.39,56.44Z"
-            className="fill-white"
-          ></path>
-        </svg>
-      </div>
-
-      <div className="container mx-auto px-4 pt-12 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Logo and Info */}
-          <div className="md:col-span-1">
-            <div className="flex items-center mb-4">
-              <img
-                src="/logo-white.svg"
-                alt="Karya Muda Logo"
-                className="h-12 w-auto mr-3"
+    <footer className="bg-gray-900 text-white">
+      {/* Main Footer */}
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Logo and Description */}
+          <div>
+            <Link to="/" className="flex items-center mb-4">
+              <img 
+                src="/logo-white.svg" 
+                alt="Karya Muda Logo" 
+                className="h-10 w-auto"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = "https://via.placeholder.com/48x48?text=KM";
+                  e.target.src = "https://via.placeholder.com/40x40?text=KM";
                 }}
               />
-              <div>
-                <h2 className="text-xl font-serif font-bold">KARYA MUDA</h2>
-                <p className="text-xs text-gray-300 uppercase tracking-wider">Bunian Drajat</p>
+              <div className="ml-3">
+                <h1 className="text-lg font-serif font-bold text-white">KARYA MUDA</h1>
+                <p className="text-xs text-gray-300 uppercase tracking-wider">Sunan Drajat</p>
               </div>
-            </div>
-            <p className="text-gray-300 mb-6">
-              Membangun masa depan berkelanjutan dan mengembangkan potensi komunitas 
-              melalui pendekatan inovatif yang harmonis dengan alam.
+            </Link>
+            <p className="text-gray-400 mb-6">
+              Karya Muda adalah platform donasi dan crowdfunding yang bertujuan untuk membantu program sosial, pendidikan, dan kesehatan bagi masyarakat yang membutuhkan.
             </p>
             <div className="flex space-x-4">
-              <a 
-                href="#" 
-                className="bg-white/10 hover:bg-white/20 h-10 w-10 rounded-full flex items-center justify-center transition-colors"
-                aria-label="Facebook"
-              >
-                <FaFacebook />
+              <a href="#" className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                <FaFacebookF className="text-white" />
               </a>
-              <a 
-                href="#" 
-                className="bg-white/10 hover:bg-white/20 h-10 w-10 rounded-full flex items-center justify-center transition-colors"
-                aria-label="Twitter"
-              >
-                <FaTwitter />
+              <a href="#" className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-400 transition-colors">
+                <FaTwitter className="text-white" />
               </a>
-              <a 
-                href="#" 
-                className="bg-white/10 hover:bg-white/20 h-10 w-10 rounded-full flex items-center justify-center transition-colors"
-                aria-label="Instagram"
-              >
-                <FaInstagram />
+              <a href="#" className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-pink-600 transition-colors">
+                <FaInstagram className="text-white" />
+              </a>
+              <a href="#" className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-red-600 transition-colors">
+                <FaYoutube className="text-white" />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="md:col-span-1">
-            <h3 className="text-lg font-bold mb-4">Tautan Cepat</h3>
+          {/* Menu */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">Menu</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                  Main Menu / Yayasan
-                </a>
+                <Link to="/" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+                  Beranda
+                </Link>
               </li>
               <li>
-                <a href="#programs" className="text-gray-300 hover:text-white transition-colors">
-                  Program Kami
-                </a>
+                <Link to="/program-reguler" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+                  Program Reguler
+                </Link>
               </li>
               <li>
-                <a href="#donate" className="text-gray-300 hover:text-white transition-colors">
+                <Link to="/program-orang-tua-asuh" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+                  Program Orang Tua Asuh
+                </Link>
+              </li>
+              <li>
+                <Link to="/implementasi-laporan" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+                  Implementasi & Laporan
+                </Link>
+              </li>
+              <li>
+                <Link to="/daftar-donatur" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
                   Daftar Donatur
-                </a>
-              </li>
-              <li>
-                <a href="/implementasi-laporan" className="text-gray-300 hover:text-white transition-colors">
-                  Implementasi / Laporan
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                  Galeri Kegiatan
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                  Tentang Kami
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Programs */}
-          <div className="md:col-span-1">
-            <h3 className="text-lg font-bold mb-4">Program Kami</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#programs" className="text-gray-300 hover:text-white transition-colors">
-                  Pertanian Organik
-                </a>
-              </li>
-              <li>
-                <a href="#programs" className="text-gray-300 hover:text-white transition-colors">
-                  Pendidikan Lingkungan
-                </a>
-              </li>
-              <li>
-                <a href="#programs" className="text-gray-300 hover:text-white transition-colors">
-                  Rumah Berkelanjutan
-                </a>
-              </li>
-              <li>
-                <a href="#programs" className="text-gray-300 hover:text-white transition-colors">
-                  Daur Ulang Kreatif
-                </a>
-              </li>
-              <li>
-                <a href="#programs" className="text-gray-300 hover:text-white transition-colors">
-                  Kewirausahaan Sosial
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div className="md:col-span-1">
-            <h3 className="text-lg font-bold mb-4">Hubungi Kami</h3>
-            <ul className="space-y-4">
+          {/* Kontak */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">Kontak</h3>
+            <ul className="space-y-3">
               <li className="flex items-start">
-                <FaMapMarkerAlt className="mt-1 mr-3 flex-shrink-0" />
-                <span>Jl. Bunian Drajat No. 123, Bogor, Jawa Barat, Indonesia</span>
+                <FaMapMarkerAlt className="text-blue-500 mr-3 mt-1 flex-shrink-0" />
+                <span className="text-gray-400">
+                  Jl. Sunan Drajat No. 123, Kecamatan Muda, Kota Karya, Indonesia 12345
+                </span>
               </li>
               <li className="flex items-center">
-                <FaPhone className="mr-3 flex-shrink-0" />
-                <span>+62 123 4567 890</span>
+                <FaEnvelope className="text-blue-500 mr-3 flex-shrink-0" />
+                <a href="mailto:info@karyamuda.id" className="text-gray-400 hover:text-white transition-colors">
+                  info@karyamuda.id
+                </a>
               </li>
               <li className="flex items-center">
-                <FaEnvelope className="mr-3 flex-shrink-0" />
-                <span>info@karyamuda.org</span>
+                <FaPhone className="text-blue-500 mr-3 flex-shrink-0" />
+                <a href="tel:+6281234567890" className="text-gray-400 hover:text-white transition-colors">
+                  0812 3456 7890
+                </a>
+              </li>
+              <li className="flex items-center">
+                <FaWhatsapp className="text-blue-500 mr-3 flex-shrink-0" />
+                <a href="https://wa.me/6281234567890" className="text-gray-400 hover:text-white transition-colors">
+                  0812 3456 7890 (WhatsApp)
+                </a>
               </li>
             </ul>
           </div>
         </div>
+      </div>
 
-        <div className="border-t border-white/20 mt-12 pt-8 text-center text-gray-300">
-          <p>© {currentYear} Yayasan Karya Muda Bunian Drajat. Hak Cipta Dilindungi.</p>
+      {/* Copyright */}
+      <div className="bg-gray-950 py-4">
+        <div className="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
+          <p className="text-gray-500 text-sm mb-2 sm:mb-0">
+            © {new Date().getFullYear()} Karya Muda. All Rights Reserved.
+          </p>
+          <div className="flex space-x-4">
+            <Link to="/privacy-policy" className="text-gray-500 text-sm hover:text-gray-300">
+              Kebijakan Privasi
+            </Link>
+            <Link to="/terms" className="text-gray-500 text-sm hover:text-gray-300">
+              Syarat & Ketentuan
+            </Link>
+          </div>
         </div>
+      </div>
+
+      {/* Scroll to top button */}
+      <div className="fixed bottom-6 right-6">
+        <button 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg hover:bg-blue-700 transition-colors"
+          aria-label="Scroll to top"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+          </svg>
+        </button>
       </div>
     </footer>
   );

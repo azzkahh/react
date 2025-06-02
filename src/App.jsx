@@ -5,16 +5,27 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import AboutSection from './components/AboutSection'
 import ProgramsSection from './components/ProgramsSection'
+import ProgramInfo from './components/ProgramInfo'
 import DonateSection from './components/DonateSection'
 import Footer from './components/Footer'
 import ProgramReguler from './pages/ProgramReguler'
 import ProgramOrangTuaAsuh from './pages/ProgramOrangTuaAsuh'
 import ImplementasiLaporan from './pages/ImplementasiLaporan'
+import DonorListPage from './pages/DonorListPage'
+
+// Admin imports
+import AdminLayout from './components/AdminLayout'
+import AdminLogin from './pages/AdminLogin'
+import Dashboard from './pages/admin/Dashboard'
+import DonaturPage from './pages/admin/DonaturPage'
+import ProgramPage from './pages/admin/ProgramPage'
+import LaporanPage from './pages/admin/LaporanPage'
 
 function HomePage() {
   return (
     <>
       <Hero />
+      <ProgramInfo />
       <AboutSection />
       <ProgramsSection />
       <DonateSection />
@@ -25,14 +36,32 @@ function HomePage() {
 function App() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/program-reguler" element={<ProgramReguler />} />
-        <Route path="/program-orang-tua-asuh" element={<ProgramOrangTuaAsuh />} />
-        <Route path="/implementasi-laporan" element={<ImplementasiLaporan />} />
+        {/* Admin Routes */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="donatur" element={<DonaturPage />} />
+          <Route path="program" element={<ProgramPage />} />
+          <Route path="laporan" element={<LaporanPage />} />
+          <Route index element={<Dashboard />} />
+        </Route>
+        
+        {/* Public Routes */}
+        <Route path="*" element={
+          <>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/program-reguler" element={<ProgramReguler />} />
+              <Route path="/program-orang-tua-asuh" element={<ProgramOrangTuaAsuh />} />
+              <Route path="/implementasi-laporan" element={<ImplementasiLaporan />} />
+              <Route path="/daftar-donatur" element={<DonorListPage />} />
+            </Routes>
+            <Footer />
+          </>
+        } />
       </Routes>
-      <Footer />
     </div>
   )
 }

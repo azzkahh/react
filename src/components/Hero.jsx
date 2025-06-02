@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaLeaf, FaHandsHelping, FaHome } from 'react-icons/fa';
+import { FaBookReader, FaHandsHelping, FaMoneyBillWave } from 'react-icons/fa';
 
 const Hero = () => {
   return (
@@ -15,9 +15,8 @@ const Hero = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight mb-6">
             Membangun Masa Depan <span className="text-secondary">Lebih Baik</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-lg">
-            Yayasan Karya Muda Bunian Drajat adalah tempat di mana tradisi bertemu inovasi untuk membangun 
-            komunitas yang berkelanjutan dan harmonis dengan alam.
+          <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-lg leading-relaxed">
+            Yayasan Karya Muda Sunan Drajat, hadir sebagai perwujudan rasa syukur atas karunia Allah dan sebagai jawaban atas kesadaran sesama hamba Allah untuk mengambil peran sebagai "khalifah"Nya dalam menebar manfaat dari karunia yang Allah hadirkan kepada hamba Nya.
           </p>
           <div className="flex flex-wrap gap-4">
             <a href="#programs" className="btn btn-primary">
@@ -33,9 +32,9 @@ const Hero = () => {
               whileHover={{ y: -10 }}
               className="bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center"
             >
-              <FaLeaf className="text-4xl text-primary mb-3" />
-              <h3 className="font-bold text-lg mb-1">Pertanian Organik</h3>
-              <p className="text-gray-600 text-sm">Menumbuhkan makanan sehat dengan praktik berkelanjutan</p>
+              <FaBookReader className="text-4xl text-primary mb-3" />
+              <h3 className="font-bold text-lg mb-1">Bidang Pendidikan</h3>
+              <p className="text-gray-600 text-sm">Pondok Tahfidz Sunan Drajat, Parenting & Majelis Ta'lim</p>
             </motion.div>
             
             <motion.div 
@@ -43,17 +42,17 @@ const Hero = () => {
               className="bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center"
             >
               <FaHandsHelping className="text-4xl text-primary mb-3" />
-              <h3 className="font-bold text-lg mb-1">Pemberdayaan</h3>
-              <p className="text-gray-600 text-sm">Mengembangkan keterampilan untuk kemandirian ekonomi</p>
+              <h3 className="font-bold text-lg mb-1">Bidang Sosial</h3>
+              <p className="text-gray-600 text-sm">Bakti sosial dan pelayanan bantuan bagi masyarakat sekitar</p>
             </motion.div>
             
             <motion.div 
               whileHover={{ y: -10 }}
               className="bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center"
             >
-              <FaHome className="text-4xl text-primary mb-3" />
-              <h3 className="font-bold text-lg mb-1">Desain Berkelanjutan</h3>
-              <p className="text-gray-600 text-sm">Membangun rumah yang ramah lingkungan dan efisien</p>
+              <FaMoneyBillWave className="text-4xl text-primary mb-3" />
+              <h3 className="font-bold text-lg mb-1">Bidang Muamalah</h3>
+              <p className="text-gray-600 text-sm">Memprakarsai bidang usaha dan keahlian sebagai bekal beribadah</p>
             </motion.div>
           </div>
         </motion.div>
@@ -68,11 +67,11 @@ const Hero = () => {
           <div className="relative z-10 overflow-hidden rounded-xl shadow-2xl">
             <img 
               src="/hero-image.jpg" 
-              alt="Rumah Karya Muda" 
+              alt="Yayasan Karya Muda Sunan Drajat" 
               className="w-full h-auto object-cover"
               onError={(e) => {
                 e.target.onerror = null; 
-                e.target.src = "https://placehold.co/600x400?text=Rumah+Karya+Muda";
+                e.target.src = "https://placehold.co/600x400?text=Yayasan+Karya+Muda";
               }}
             />
           </div>

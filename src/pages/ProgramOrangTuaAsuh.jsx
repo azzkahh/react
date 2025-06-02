@@ -48,9 +48,7 @@ const ProgramOrangTuaAsuh = () => {
           <div className="bg-white rounded-lg shadow-md p-6 mb-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Tentang Program Orang Tua Asuh</h2>
             <p className="text-gray-700 mb-6 leading-relaxed">
-              Program Orang Tua Asuh adalah inisiatif yang memungkinkan Anda untuk mendukung pendidikan dan kebutuhan 
-              santri yang berasal dari keluarga kurang mampu. Dengan menjadi orang tua asuh, Anda membantu memberikan 
-              masa depan yang lebih baik bagi mereka melalui pendidikan yang berkualitas.
+              Program pendampingan santri duafa program 3 thn – 6 thn, pilihan santri yaitu dapat melanjutkan santri lama atau santri baru yang disusulkan oleh Yayasan. Dukungan program berbentuk memberikan fasilitas biaya selama berkegiatan di pondok adapun besarannya 1,2 Jt / Bulan / Santri. Yang dapat pula dikelola oleh beberapa orang tua asuh (contoh 4 OTA mendampingi 1 orang santri = 300 rb / OTA).
             </p>
             
             <h3 className="text-xl font-semibold text-gray-800 mb-3">Manfaat Program</h3>

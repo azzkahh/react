@@ -1,52 +1,62 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaTimes } from 'react-icons/fa';
+import { FaTimes, FaHeart } from 'react-icons/fa';
 
 const ProgramReguler = () => {
   const [selectedProgram, setSelectedProgram] = useState(null);
+  const [selectedAmount, setSelectedAmount] = useState(null);
+  const [customAmount, setCustomAmount] = useState('');
   
   // Donation programs data
   const donationPrograms = [
     {
       id: 1,
-      name: 'ONE DAY, ONE THOUSAND',
-      image: '/gerakan-one-day.png',
-      description: 'Gerakan donasi seribu rupiah setiap hari untuk membantu pendidikan santri.',
+      name: 'SEDEKAH SUBUH',
+      image: '/sedekah-subuh.png',
+      description: 'Rasullulah SAW bersabda "Sedekah di pagi hari akan menjauhkan kita dari bencana" (HR Ahmad)',
       collectedAmount: 'Rp 5.263.600',
       target: 'Rp 10.000.000',
       deadline: '30 September 2025',
-      details: 'Program ini dirancang untuk memudahkan berdonasi dengan nominal yang terjangkau namun berkelanjutan. Setiap seribu rupiah yang Anda sumbangkan akan membantu menyediakan fasilitas pendidikan yang layak bagi santri yang membutuhkan.'
+      details: 'Yayasan memfasilitasi distribusi sedekah subuh kepada mustahik secara tercatat & tepat sasaran, adapun besarannya tidaklah ditentukan.'
     },
     {
       id: 2,
-      name: 'JUMAT BERKAH - REGULAR',
-      image: '/jumat-berkah.png',
-      description: 'Program donasi rutin setiap hari Jumat untuk keberkahan di hari spesial.',
+      name: 'BERAS UNTUK SANTRI',
+      image: '/beras-santri.png',
+      description: 'Memuliakan santri Tahfidz dengan menjaganya agar tetap dalam kondisi terbaik.',
       collectedAmount: 'Rp 330.000',
       target: 'Rp 1.000.000',
       deadline: '30 Juni 2025',
-      details: 'Jumat Berkah adalah program donasi rutin yang dilaksanakan setiap hari Jumat, dimulai dari Rp 20.000. Donasi ini akan digunakan untuk kegiatan sosial dan peningkatan fasilitas belajar santri.'
+      details: 'Memuliakan santri Tahfidz dengan menjaganya agar tetap dalam kondisi terbaik dengan memberikan kecukupan makanan nya. Adapun besarannya adalah 10.000 / Liter'
     },
     {
       id: 3,
-      name: 'KIRIM BERAS UNTUK SANTRI YATIM',
-      image: '/kirim-beras.png',
-      description: 'Bantuan kebutuhan pokok berupa beras untuk santri yatim di pesantren.',
+      name: 'TRANSPORT USTADZ',
+      image: '/transport-ustadz.png',
+      description: 'Memuliakan Ustadz agar dapat hadir tanpa kendala transportasi.',
       collectedAmount: 'Rp 630.000',
       target: 'Rp 2.000.000',
       deadline: '30 Juni 2025',
-      details: 'Program donasi untuk menyediakan beras bagi santri yatim di pondok pesantren. Donasi Anda akan membantu memenuhi kebutuhan pangan sehari-hari para santri.'
+      details: 'Memuliakan Ustadz adalah dengan menjaganya agar disetiap pertemuan mampu hadir tanpa kendala yang bersifat tekhnis yaitu transpotasi dalam bentuk bensin. Adapun besarannya adalah 10.000 / Liter'
     },
     {
       id: 4,
-      name: 'WAKAF AL QURAN BRAILLE',
+      name: 'WAKAF QURAN TERJEMAH',
       image: '/wakaf-quran.png',
-      description: 'Wakaf Al-Quran Braille untuk membantu santri dengan gangguan penglihatan.',
+      description: 'Quran Terjemah sebagai sarana belajar santri yang perlu diperbarui secara periodik.',
       collectedAmount: 'Rp 914.000',
       target: 'Rp 5.000.000',
       deadline: '31 Desember 2025',
-      details: 'Program wakaf Al-Quran Braille bertujuan membantu santri dengan gangguan penglihatan agar dapat membaca dan mempelajari Al-Quran dengan lebih mudah.'
+      details: 'Quran Terjemaah adalah sarana yg digunakan oleh santri dalam kegiatan belajar dan harus di perbaharui secara periodik. Untuk hal ini kami persilahkan menyumbang dalam bentuk Kitab atau uang seharga satu buah kitab'
     }
+  ];
+
+  // Donation amount options
+  const donationAmounts = [
+    { value: 50000, label: 'Rp 50.000' },
+    { value: 100000, label: 'Rp 100.000' },
+    { value: 150000, label: 'Rp 150.000' },
+    { value: 200000, label: 'Rp 200.000' }
   ];
 
   // Banks and payment methods
@@ -73,12 +83,24 @@ const ProgramReguler = () => {
 
   const openDonationForm = (program) => {
     setSelectedProgram(program);
+    setSelectedAmount(null);
+    setCustomAmount('');
     document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
   };
 
   const closeDonationForm = () => {
     setSelectedProgram(null);
     document.body.style.overflow = 'auto'; // Re-enable scrolling
+  };
+
+  const handleAmountSelect = (amount) => {
+    setSelectedAmount(amount);
+    setCustomAmount('');
+  };
+
+  const handleCustomAmountChange = (e) => {
+    setCustomAmount(e.target.value);
+    setSelectedAmount(null);
   };
 
   return (
@@ -139,18 +161,18 @@ const ProgramReguler = () => {
           <div className="bg-white rounded-lg shadow-md p-6 mb-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Tentang Program Reguler</h2>
             <p className="text-gray-700 mb-6 leading-relaxed">
-              Program Reguler Karya Muda Bunian Drajat dirancang untuk memberikan pendidikan dan pelatihan berkualitas 
-              kepada santri kami. Melalui program ini, kami fokus pada pengembangan keterampilan akademik, spiritual,
-              dan keterampilan hidup yang penting untuk masa depan mereka.
+              Program Reguler Karya Muda Sunan Drajat dirancang untuk memberikan dukungan berkelanjutan kepada 
+              santri dan ustadz kami. Melalui program ini, kami memfasilitasi berbagai bentuk sedekah dan wakaf 
+              yang dapat dilakukan secara rutin untuk mendukung kegiatan pendidikan dan kesejahteraan santri dan ustadz.
             </p>
             
             <h3 className="text-xl font-semibold text-gray-800 mb-3">Fitur Program</h3>
             <ul className="list-disc pl-6 mb-6 text-gray-700 space-y-2">
-              <li>Pendidikan agama komprehensif</li>
-              <li>Kurikulum akademik yang sesuai dengan standar nasional</li>
-              <li>Pengembangan keterampilan bahasa (Arab dan Inggris)</li>
-              <li>Pelatihan keterampilan hidup dan kewirausahaan</li>
-              <li>Kegiatan ekstrakurikuler untuk pengembangan bakat</li>
+              <li>Sedekah Subuh - distribusi sedekah pagi hari kepada mustahik</li>
+              <li>Beras untuk Santri - membantu kecukupan makanan santri (Rp 10.000/liter)</li>
+              <li>Transport Ustadz - membantu biaya transportasi ustadz (Rp 10.000/liter)</li>
+              <li>Wakaf Quran Terjemah - menyediakan sarana belajar yang diperbarui secara periodik</li>
+              <li>Laporan berkala tentang penyaluran donasi</li>
             </ul>
 
             <h3 className="text-xl font-semibold text-gray-800 mb-3">Jadwal dan Kegiatan</h3>
@@ -197,20 +219,6 @@ const ProgramReguler = () => {
                   </tr>
                 </tbody>
               </table>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Pendaftaran</h2>
-            <p className="text-gray-700 mb-6 leading-relaxed">
-              Untuk mendaftar Program Reguler di Karya Muda Bunian Drajat, silakan lengkapi formulir pendaftaran
-              dan ikuti proses seleksi. Pendaftaran dibuka sepanjang tahun dengan kuota terbatas.
-            </p>
-            
-            <div className="flex justify-center">
-              <button className="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors font-medium">
-                Daftar Sekarang
-              </button>
             </div>
           </div>
         </motion.div>
@@ -266,6 +274,11 @@ const ProgramReguler = () => {
                   <div className="mb-6">
                     <h3 className="text-lg font-semibold text-gray-800 mb-2">Deskripsi Program</h3>
                     <p className="text-gray-700">{selectedProgram.details || selectedProgram.description}</p>
+                    {selectedProgram.name === 'SEDEKAH SUBUH' && (
+                      <p className="text-gray-700 mt-3 italic font-medium">
+                        Rasullulah SAW bersabda "Sedekah di pagi hari akan menjauhkan kita dari bencana" (HR Ahmad)
+                      </p>
+                    )}
                   </div>
                   
                   <form className="space-y-4">
@@ -297,12 +310,36 @@ const ProgramReguler = () => {
                     </div>
                     
                     <div>
-                      <label className="block text-gray-700 mb-2">Jumlah Donasi</label>
-                      <input 
-                        type="text" 
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="Masukkan jumlah donasi"
-                      />
+                      <label className="block text-gray-700 mb-2 font-semibold">Pilih Jumlah Donasi</label>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+                        {donationAmounts.map((amount) => (
+                          <button
+                            key={amount.value}
+                            type="button"
+                            onClick={() => handleAmountSelect(amount.value)}
+                            className={`px-4 py-3 border rounded-lg text-center transition-colors ${
+                              selectedAmount === amount.value
+                                ? 'bg-green-500 text-white border-green-500'
+                                : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                            }`}
+                          >
+                            {amount.label}
+                          </button>
+                        ))}
+                      </div>
+                      <div>
+                        <label className="block text-gray-700 mb-2">Jumlah Lain</label>
+                        <div className="relative">
+                          <span className="absolute left-0 top-0 flex items-center h-full pl-3 text-gray-600">Rp</span>
+                          <input 
+                            type="text" 
+                            value={customAmount}
+                            onChange={handleCustomAmountChange}
+                            className="w-full px-4 py-2 pl-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                            placeholder="Masukkan jumlah donasi"
+                          />
+                        </div>
+                      </div>
                     </div>
                     
                     <div>
@@ -379,9 +416,9 @@ const ProgramReguler = () => {
                     <div className="pt-4">
                       <button 
                         type="button"
-                        className="w-full bg-green-500 text-white font-medium py-3 rounded-md hover:bg-green-600 transition-colors"
+                        className="w-full bg-green-500 text-white font-medium py-3 rounded-md hover:bg-green-600 transition-colors flex items-center justify-center"
                       >
-                        Konfirmasi Donasi
+                        <FaHeart className="mr-2" /> Konfirmasi Donasi
                       </button>
                     </div>
                   </form>

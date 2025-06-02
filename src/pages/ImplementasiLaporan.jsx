@@ -105,7 +105,7 @@ const ImplementasiLaporan = () => {
           <div className="bg-white rounded-lg shadow-md p-6 mb-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Tentang Implementasi & Laporan</h2>
             <p className="text-gray-700 mb-6 leading-relaxed">
-              Halaman Implementasi & Laporan Karya Muda Bunian Drajat berisi dokumentasi dan laporan 
+              Halaman Implementasi & Laporan Karya Muda Sunan Drajat berisi dokumentasi dan laporan 
               dari berbagai kegiatan yang telah kami lakukan. Laporan ini menunjukkan bagaimana 
               dana yang telah diberikan oleh para donatur digunakan dengan tepat sasaran untuk 
               mendukung program-program kami.

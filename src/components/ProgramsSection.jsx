@@ -1,63 +1,53 @@
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FaSeedling, FaGraduationCap, FaHome, FaRecycle, FaChevronRight } from 'react-icons/fa';
+import { FaBookOpen, FaSun, FaUtensils, FaCarSide, FaBook, FaChevronRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const programs = [
   {
     id: 1,
-    title: "Pertanian Organik",
-    description: "Program pertanian organik kami membantu petani lokal mengadopsi metode berkelanjutan untuk meningkatkan hasil panen sambil melindungi lingkungan.",
-    icon: FaSeedling,
-    image: "/program-farming.jpg",
-    placeholder: "https://placehold.co/600x400?text=Pertanian+Organik",
-    benefits: [
-      "Pelatihan metode pertanian organik",
-      "Distribusi bibit unggul",
-      "Pendampingan berkelanjutan",
-      "Akses ke pasar organik"
-    ]
+    title: "Orang Tua Asuh",
+    description: "Program pendampingan santri duafa program 3-6 tahun, dengan dukungan biaya selama berkegiatan di pondok.",
+    icon: FaBookOpen,
+    image: "/program-ota.jpg",
+    placeholder: "https://placehold.co/600x400?text=Orang+Tua+Asuh",
+    link: "/program-orang-tua-asuh"
   },
   {
     id: 2,
-    title: "Pendidikan Lingkungan",
-    description: "Kami menyelenggarakan program pendidikan lingkungan untuk meningkatkan kesadaran tentang pentingnya menjaga keberlanjutan ekosistem.",
-    icon: FaGraduationCap,
-    image: "/program-education.jpg",
-    placeholder: "https://placehold.co/600x400?text=Pendidikan+Lingkungan",
-    benefits: [
-      "Workshop lingkungan untuk anak-anak",
-      "Pelatihan pengelolaan sampah",
-      "Program kebun sekolah",
-      "Kunjungan lapangan dan praktik langsung"
-    ]
+    title: "Sedekah Subuh",
+    description: "Rasullulah SAW bersabda \"Sedekah di pagi hari akan menjauhkan kita dari bencana\" (HR Ahmad)",
+    icon: FaSun,
+    image: "/sedekah-subuh.png",
+    placeholder: "https://placehold.co/600x400?text=Sedekah+Subuh",
+    link: "/program-reguler"
   },
   {
     id: 3,
-    title: "Rumah Berkelanjutan",
-    description: "Kami merancang dan membangun rumah yang ramah lingkungan dengan menggunakan material lokal dan teknologi hemat energi.",
-    icon: FaHome,
-    image: "/program-housing.jpg",
-    placeholder: "https://placehold.co/600x400?text=Rumah+Berkelanjutan",
-    benefits: [
-      "Desain rumah hemat energi",
-      "Penggunaan material lokal dan ramah lingkungan",
-      "Sistem pengolahan air dan limbah mandiri",
-      "Integrasi dengan kebun produktif"
-    ]
+    title: "Beras untuk Santri",
+    description: "Memuliakan santri Tahfidz dengan menjaganya agar tetap dalam kondisi terbaik dengan memberikan kecukupan makanan.",
+    icon: FaUtensils,
+    image: "/beras-santri.png",
+    placeholder: "https://placehold.co/600x400?text=Beras+Santri",
+    link: "/program-reguler"
   },
   {
     id: 4,
-    title: "Daur Ulang Kreatif",
-    description: "Program daur ulang kreatif kami mengubah sampah menjadi produk bernilai ekonomi sambil mengurangi dampak lingkungan.",
-    icon: FaRecycle,
-    image: "/program-recycle.jpg",
-    placeholder: "https://placehold.co/600x400?text=Daur+Ulang+Kreatif",
-    benefits: [
-      "Pelatihan keterampilan daur ulang",
-      "Produksi kerajinan dari bahan daur ulang",
-      "Pemasaran produk daur ulang",
-      "Sistem pengelolaan sampah komunal"
-    ]
+    title: "Transport Ustadz",
+    description: "Memuliakan Ustadz agar disetiap pertemuan mampu hadir tanpa kendala yang bersifat tekhnis yaitu transpotasi.",
+    icon: FaCarSide,
+    image: "/transport-ustadz.png",
+    placeholder: "https://placehold.co/600x400?text=Transport+Ustadz",
+    link: "/program-reguler"
+  },
+  {
+    id: 5,
+    title: "Wakaf Qur'an Terjemah",
+    description: "Quran Terjemah adalah sarana yang digunakan oleh santri dalam kegiatan belajar dan harus di perbaharui secara periodik.",
+    icon: FaBook,
+    image: "/wakaf-quran.png",
+    placeholder: "https://placehold.co/600x400?text=Wakaf+Quran",
+    link: "/program-reguler"
   }
 ];
 
@@ -90,10 +80,6 @@ const ProgramsSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Program Kami</h2>
-          <p className="text-lg text-gray-700 leading-relaxed">
-            Yayasan Karya Muda Bunian Drajat mengembangkan berbagai program untuk 
-            menciptakan lingkungan yang berkelanjutan dan memberdayakan masyarakat lokal.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -147,21 +133,9 @@ const ProgramsSection = () => {
                   </div>
                   <p className="text-gray-700 mb-6">{activeProgram.description}</p>
                   
-                  <h4 className="font-bold text-secondary mb-3">Manfaat Program:</h4>
-                  <ul className="space-y-2 mb-6">
-                    {activeProgram.benefits.map((benefit, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="flex-shrink-0 h-5 w-5 bg-primary/20 text-primary rounded-full flex items-center justify-center mr-3 mt-1">
-                          <FaChevronRight className="h-2 w-2" />
-                        </span>
-                        <span className="text-gray-700">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <a href="#donate" className="btn btn-primary">
+                  <Link to={activeProgram.link} className="btn btn-primary">
                     Dukung Program Ini
-                  </a>
+                  </Link>
                 </div>
                 
                 <div className="relative">
