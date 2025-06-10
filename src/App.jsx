@@ -6,12 +6,12 @@ import Hero from './components/Hero'
 import AboutSection from './components/AboutSection'
 import ProgramsSection from './components/ProgramsSection'
 import ProgramInfo from './components/ProgramInfo'
-import DonateSection from './components/DonateSection'
 import Footer from './components/Footer'
 import ProgramReguler from './pages/ProgramReguler'
 import ProgramOrangTuaAsuh from './pages/ProgramOrangTuaAsuh'
 import ImplementasiLaporan from './pages/ImplementasiLaporan'
 import DonorListPage from './pages/DonorListPage'
+import DonationProgramDetail from './pages/donations/DonationProgramDetail'
 
 // Admin imports
 import AdminLayout from './components/AdminLayout'
@@ -28,7 +28,6 @@ function HomePage() {
       <ProgramInfo />
       <AboutSection />
       <ProgramsSection />
-      <DonateSection />
     </>
   )
 }
@@ -57,6 +56,7 @@ function App() {
               <Route path="/program-orang-tua-asuh" element={<ProgramOrangTuaAsuh />} />
               <Route path="/implementasi-laporan" element={<ImplementasiLaporan />} />
               <Route path="/daftar-donatur" element={<DonorListPage />} />
+              <Route path="/program-donasi/:programId" element={<DonationProgramDetail />} />
             </Routes>
             <Footer />
           </>

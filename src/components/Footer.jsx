@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
+import { FaTiktok } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
@@ -28,17 +29,11 @@ const Footer = () => {
               Karya Muda adalah platform donasi dan crowdfunding yang bertujuan untuk membantu program sosial, pendidikan, dan kesehatan bagi masyarakat yang membutuhkan.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-600 transition-colors">
-                <FaFacebookF className="text-white" />
-              </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-400 transition-colors">
-                <FaTwitter className="text-white" />
-              </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-pink-600 transition-colors">
+              <a href="http://Instagram.com/kmsdrajat" className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-pink-600 transition-colors">
                 <FaInstagram className="text-white" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-red-600 transition-colors">
-                <FaYoutube className="text-white" />
+              <a href="https://www.tiktok.com/@kmsdrajat?_t=ZS-8x3fN8zHoNl&_r=1" className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-black transition-colors">
+                <FaTiktok className="text-white" />
               </a>
             </div>
           </div>

@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaTimes, FaHeart } from 'react-icons/fa';
 
 const ProgramReguler = () => {
-  const [selectedProgram, setSelectedProgram] = useState(null);
-  const [selectedAmount, setSelectedAmount] = useState(null);
-  const [customAmount, setCustomAmount] = useState('');
+  const navigate = useNavigate();
   
   // Donation programs data
   const donationPrograms = [
@@ -51,56 +49,9 @@ const ProgramReguler = () => {
     }
   ];
 
-  // Donation amount options
-  const donationAmounts = [
-    { value: 50000, label: 'Rp 50.000' },
-    { value: 100000, label: 'Rp 100.000' },
-    { value: 150000, label: 'Rp 150.000' },
-    { value: 200000, label: 'Rp 200.000' }
-  ];
-
-  // Banks and payment methods
-  const paymentMethods = {
-    eWallet: [
-      { name: 'OVO', image: '/payment/ovo.png' },
-      { name: 'DANA', image: '/payment/dana.png' },
-      { name: 'Gopay', image: '/payment/gopay.png' },
-      { name: 'LinkAja', image: '/payment/linkaja.png' }
-    ],
-    digitalBank: [
-      { name: 'Jenius', image: '/payment/jenius.png' },
-      { name: 'Jago', image: '/payment/jago.png' },
-      { name: 'Blu', image: '/payment/blu.png' },
-      { name: 'SeaBank', image: '/payment/seabank.png' }
-    ],
-    virtualAccount: [
-      { name: 'BCA', image: '/payment/bca.png' },
-      { name: 'BRI', image: '/payment/bri.png' },
-      { name: 'BNI', image: '/payment/bni.png' },
-      { name: 'Mandiri', image: '/payment/mandiri.png' }
-    ]
-  };
-
-  const openDonationForm = (program) => {
-    setSelectedProgram(program);
-    setSelectedAmount(null);
-    setCustomAmount('');
-    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-  };
-
-  const closeDonationForm = () => {
-    setSelectedProgram(null);
-    document.body.style.overflow = 'auto'; // Re-enable scrolling
-  };
-
-  const handleAmountSelect = (amount) => {
-    setSelectedAmount(amount);
-    setCustomAmount('');
-  };
-
-  const handleCustomAmountChange = (e) => {
-    setCustomAmount(e.target.value);
-    setSelectedAmount(null);
+  // Navigate to donation program detail page
+  const navigateToDonationProgram = (programId) => {
+    navigate(`/program-donasi/${programId}`);
   };
 
   return (
@@ -115,14 +66,13 @@ const ProgramReguler = () => {
           <h1 className="text-3xl md:text-4xl font-bold text-primary mb-6">Program Reguler</h1>
           
           {/* Donation Program Cards */}
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Donasi, ZIS, Wakaf</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {donationPrograms.map((program) => (
               <motion.div 
                 key={program.id}
                 whileHover={{ y: -5 }}
                 className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer"
-                onClick={() => openDonationForm(program)}
+                onClick={() => navigateToDonationProgram(program.id)}
               >
                 <div className="h-52 overflow-hidden">
                   <img 
@@ -172,50 +122,244 @@ const ProgramReguler = () => {
               <li>Beras untuk Santri - membantu kecukupan makanan santri (Rp 10.000/liter)</li>
               <li>Transport Ustadz - membantu biaya transportasi ustadz (Rp 10.000/liter)</li>
               <li>Wakaf Quran Terjemah - menyediakan sarana belajar yang diperbarui secara periodik</li>
-              <li>Laporan berkala tentang penyaluran donasi</li>
             </ul>
 
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">Jadwal dan Kegiatan</h3>
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">JADWAL KEGIATAN REGULER (Senin - Sabtu)</h3>
             <div className="overflow-x-auto mb-6">
               <table className="min-w-full bg-white border border-gray-200">
                 <thead>
                   <tr className="bg-gray-100">
-                    <th className="py-2 px-3 border-b text-left">Waktu</th>
-                    <th className="py-2 px-3 border-b text-left">Kegiatan</th>
+                    <th colSpan="2" className="py-2 px-3 border-b text-center">JAM</th>
+                    <th rowSpan="2" className="py-2 px-3 border-b text-center">JADWAL KEGIATAN</th>
+                  </tr>
+                  <tr className="bg-gray-100">
+                    <th className="py-2 px-3 border-b text-center">Mulai</th>
+                    <th className="py-2 px-3 border-b text-center">Selesai</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="py-2 px-3 border-b">04:00 - 05:30</td>
-                    <td className="py-2 px-3 border-b">Sholat Subuh & Mengaji</td>
+                    <td className="py-2 px-3 border-b text-center">03.00</td>
+                    <td className="py-2 px-3 border-b text-center">03.30</td>
+                    <td className="py-2 px-3 border-b">Bangun Persiapan Tahajud</td>
                   </tr>
                   <tr>
-                    <td className="py-2 px-3 border-b">06:00 - 07:00</td>
-                    <td className="py-2 px-3 border-b">Sarapan & Persiapan</td>
+                    <td className="py-2 px-3 border-b text-center">03.30</td>
+                    <td className="py-2 px-3 border-b text-center">04.30</td>
+                    <td className="py-2 px-3 border-b">Tahajud Berjamaah 4 Raka'at + witir</td>
                   </tr>
                   <tr>
-                    <td className="py-2 px-3 border-b">07:30 - 12:00</td>
-                    <td className="py-2 px-3 border-b">Kegiatan Belajar Formal</td>
+                    <td className="py-2 px-3 border-b text-center">04.30</td>
+                    <td className="py-2 px-3 border-b text-center">05.30</td>
+                    <td className="py-2 px-3 border-b">Sholat Subuh, Al Ma'surat, Halaqah Quran</td>
                   </tr>
                   <tr>
-                    <td className="py-2 px-3 border-b">12:00 - 13:30</td>
-                    <td className="py-2 px-3 border-b">Sholat Dzuhur & Makan Siang</td>
+                    <td className="py-2 px-3 border-b text-center">05.30</td>
+                    <td className="py-2 px-3 border-b text-center">06.00</td>
+                    <td className="py-2 px-3 border-b">Halaqah Qur'an / Simaan</td>
                   </tr>
                   <tr>
-                    <td className="py-2 px-3 border-b">14:00 - 15:30</td>
-                    <td className="py-2 px-3 border-b">Pembelajaran Tambahan</td>
+                    <td className="py-2 px-3 border-b text-center">06.00</td>
+                    <td className="py-2 px-3 border-b text-center">06.30</td>
+                    <td className="py-2 px-3 border-b">Chek Tempat Tugas & Susun Rencana</td>
                   </tr>
                   <tr>
-                    <td className="py-2 px-3 border-b">16:00 - 17:30</td>
-                    <td className="py-2 px-3 border-b">Kegiatan Ekstrakurikuler</td>
+                    <td className="py-2 px-3 border-b text-center">06.30</td>
+                    <td className="py-2 px-3 border-b text-center">08.30</td>
+                    <td className="py-2 px-3 border-b">Piket Kebersihan, Sarapan & Mandi</td>
                   </tr>
                   <tr>
-                    <td className="py-2 px-3 border-b">18:00 - 19:30</td>
-                    <td className="py-2 px-3 border-b">Sholat Maghrib & Mengaji</td>
+                    <td className="py-2 px-3 border-b text-center">08.30</td>
+                    <td className="py-2 px-3 border-b text-center">10.45</td>
+                    <td className="py-2 px-3 border-b">Dhuha, Halaqah Quran / Materi</td>
                   </tr>
                   <tr>
-                    <td className="py-2 px-3 border-b">20:00 - 21:30</td>
-                    <td className="py-2 px-3 border-b">Belajar Mandiri</td>
+                    <td className="py-2 px-3 border-b text-center">10.45</td>
+                    <td className="py-2 px-3 border-b text-center">11.45</td>
+                    <td className="py-2 px-3 border-b">Istirahat / Qoilullah</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">11.45</td>
+                    <td className="py-2 px-3 border-b text-center">12.30</td>
+                    <td className="py-2 px-3 border-b">Sholat Dzuhur</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">12.30</td>
+                    <td className="py-2 px-3 border-b text-center">13.00</td>
+                    <td className="py-2 px-3 border-b">Makan Siang (Piket kebersihan)</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">13.00</td>
+                    <td className="py-2 px-3 border-b text-center">14.00</td>
+                    <td className="py-2 px-3 border-b">Tugas Lapangan 1</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">14.00</td>
+                    <td className="py-2 px-3 border-b text-center">15.00</td>
+                    <td className="py-2 px-3 border-b">Tugas Lapangan 2</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">15.00</td>
+                    <td className="py-2 px-3 border-b text-center">15.45</td>
+                    <td className="py-2 px-3 border-b">Sholat Ashar, Al Ma'surat, Asmaul Husna</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">15.45</td>
+                    <td className="py-2 px-3 border-b text-center">17.00</td>
+                    <td className="py-2 px-3 border-b">Istirahat Sore, Bersih-bersih</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">17.00</td>
+                    <td className="py-2 px-3 border-b text-center">17.45</td>
+                    <td className="py-2 px-3 border-b">Persiapan Sholat Maghrib</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">17.45</td>
+                    <td className="py-2 px-3 border-b text-center">18.30</td>
+                    <td className="py-2 px-3 border-b">Shalat Maghrib</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">18.30</td>
+                    <td className="py-2 px-3 border-b text-center">19.00</td>
+                    <td className="py-2 px-3 border-b">Makan Malam (Piket kebersihan)</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">19.00</td>
+                    <td className="py-2 px-3 border-b text-center">19.20</td>
+                    <td className="py-2 px-3 border-b">Sholat Isya</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">19.20</td>
+                    <td className="py-2 px-3 border-b text-center">20.50</td>
+                    <td className="py-2 px-3 border-b">Halaqah Qur'an / Simaan</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">20.50</td>
+                    <td className="py-2 px-3 border-b text-center">21.00</td>
+                    <td className="py-2 px-3 border-b">Baca Surat Pilihan (Al Khafi Malam Jumat)</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">21.00</td>
+                    <td className="py-2 px-3 border-b text-center">21.30</td>
+                    <td className="py-2 px-3 border-b">Istirahat Tidur Malam</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">JADWAL KEGIATAN HARI AHAD</h3>
+            <div className="overflow-x-auto mb-6">
+              <table className="min-w-full bg-white border border-gray-200">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th colSpan="2" className="py-2 px-3 border-b text-center">JAM</th>
+                    <th rowSpan="2" className="py-2 px-3 border-b text-center">JADWAL KEGIATAN</th>
+                  </tr>
+                  <tr className="bg-gray-100">
+                    <th className="py-2 px-3 border-b text-center">Mulai</th>
+                    <th className="py-2 px-3 border-b text-center">Selesai</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">03.00</td>
+                    <td className="py-2 px-3 border-b text-center">03.30</td>
+                    <td className="py-2 px-3 border-b">Bangun Persiapan Tahajud</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">03.30</td>
+                    <td className="py-2 px-3 border-b text-center">04.30</td>
+                    <td className="py-2 px-3 border-b">Tahajud Berjamaah 4 Raka'at + witir</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">04.30</td>
+                    <td className="py-2 px-3 border-b text-center">05.30</td>
+                    <td className="py-2 px-3 border-b">Sholat Subuh, Al Ma'surat, Halaqah Quran</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">05.30</td>
+                    <td className="py-2 px-3 border-b text-center">06.00</td>
+                    <td className="py-2 px-3 border-b">Halaqah Qur'an / Simaan</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">06.00</td>
+                    <td className="py-2 px-3 border-b text-center">08.00</td>
+                    <td className="py-2 px-3 border-b">Olah Raga</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">08.00</td>
+                    <td className="py-2 px-3 border-b text-center">09.30</td>
+                    <td className="py-2 px-3 border-b">Piket Kebersihan, Sarapan & Mandi</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">09.30</td>
+                    <td className="py-2 px-3 border-b text-center">10.45</td>
+                    <td className="py-2 px-3 border-b">Chek Tempat Tugas dan susun rencana kerja</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">10.45</td>
+                    <td className="py-2 px-3 border-b text-center">11.30</td>
+                    <td className="py-2 px-3 border-b">Tugas Lapangan 1</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">11.30</td>
+                    <td className="py-2 px-3 border-b text-center">13.00</td>
+                    <td className="py-2 px-3 border-b">Sholat Dzuhur</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">13.00</td>
+                    <td className="py-2 px-3 border-b text-center">14.00</td>
+                    <td className="py-2 px-3 border-b">Makan Siang (Piket kebersihan)</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">14.00</td>
+                    <td className="py-2 px-3 border-b text-center">15.00</td>
+                    <td className="py-2 px-3 border-b">Tugas Lapangan 1</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">15.00</td>
+                    <td className="py-2 px-3 border-b text-center">15.45</td>
+                    <td className="py-2 px-3 border-b">Sholat Ashar, Al Ma'surat, Asmaul Husna</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">15.45</td>
+                    <td className="py-2 px-3 border-b text-center">17.00</td>
+                    <td className="py-2 px-3 border-b">Istirahat Sore, Bersih-bersih</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">17.00</td>
+                    <td className="py-2 px-3 border-b text-center">17.45</td>
+                    <td className="py-2 px-3 border-b">Persiapan Sholat Maghrib</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">17.45</td>
+                    <td className="py-2 px-3 border-b text-center">18.30</td>
+                    <td className="py-2 px-3 border-b">Shalat Maghrib</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">18.30</td>
+                    <td className="py-2 px-3 border-b text-center">19.00</td>
+                    <td className="py-2 px-3 border-b">Makan Malam (Piket kebersihan)</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">19.00</td>
+                    <td className="py-2 px-3 border-b text-center">19.20</td>
+                    <td className="py-2 px-3 border-b">Sholat Isya</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">19.20</td>
+                    <td className="py-2 px-3 border-b text-center">20.50</td>
+                    <td className="py-2 px-3 border-b">Baca Buku Bebas</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">20.50</td>
+                    <td className="py-2 px-3 border-b text-center">21.00</td>
+                    <td className="py-2 px-3 border-b">Baca Surat Pilihan</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-3 border-b text-center">21.00</td>
+                    <td className="py-2 px-3 border-b text-center">21.30</td>
+                    <td className="py-2 px-3 border-b">Istirahat Tidur Malam</td>
                   </tr>
                 </tbody>
               </table>
@@ -223,211 +367,6 @@ const ProgramReguler = () => {
           </div>
         </motion.div>
       </div>
-
-      {/* Donation Form Modal */}
-      {selectedProgram && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-          >
-            <div className="sticky top-0 bg-white p-4 border-b flex justify-between items-center">
-              <h2 className="text-xl font-bold text-primary">{selectedProgram.name}</h2>
-              <button 
-                onClick={closeDonationForm}
-                className="text-gray-500 hover:text-gray-700 text-xl"
-              >
-                <FaTimes />
-              </button>
-            </div>
-            
-            <div className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="md:col-span-1">
-                  <div className="mb-4 border rounded-lg overflow-hidden">
-                    <img 
-                      src={selectedProgram.image} 
-                      alt={selectedProgram.name}
-                      className="w-full h-auto"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = `https://via.placeholder.com/400x250/e6f7ff/0066cc?text=${selectedProgram.name}`;
-                      }}
-                    />
-                  </div>
-                  
-                  <h3 className="font-semibold text-primary mb-2">Nama Program</h3>
-                  <p className="text-gray-700 mb-4">{selectedProgram.name}</p>
-                  
-                  <h3 className="font-semibold text-primary mb-2">Dana Terkumpul</h3>
-                  <p className="text-gray-700 mb-4">{selectedProgram.collectedAmount}</p>
-                  
-                  <h3 className="font-semibold text-primary mb-2">Target Donasi</h3>
-                  <p className="text-gray-700 mb-4">{selectedProgram.target}</p>
-                  
-                  <h3 className="font-semibold text-primary mb-2">Berakhir Pada</h3>
-                  <p className="text-gray-700 mb-4">{selectedProgram.deadline}</p>
-                </div>
-                
-                <div className="md:col-span-2">
-                  <div className="mb-6">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Deskripsi Program</h3>
-                    <p className="text-gray-700">{selectedProgram.details || selectedProgram.description}</p>
-                    {selectedProgram.name === 'SEDEKAH SUBUH' && (
-                      <p className="text-gray-700 mt-3 italic font-medium">
-                        Rasullulah SAW bersabda "Sedekah di pagi hari akan menjauhkan kita dari bencana" (HR Ahmad)
-                      </p>
-                    )}
-                  </div>
-                  
-                  <form className="space-y-4">
-                    <div>
-                      <label className="block text-gray-700 mb-2">Nama Donatur</label>
-                      <input 
-                        type="text" 
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="Masukkan nama Anda"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-gray-700 mb-2">Asal Kota</label>
-                      <input 
-                        type="text" 
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="Masukkan kota asal Anda"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-gray-700 mb-2">No WhatsApp</label>
-                      <input 
-                        type="text" 
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="Masukkan nomor WhatsApp Anda"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-gray-700 mb-2 font-semibold">Pilih Jumlah Donasi</label>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-                        {donationAmounts.map((amount) => (
-                          <button
-                            key={amount.value}
-                            type="button"
-                            onClick={() => handleAmountSelect(amount.value)}
-                            className={`px-4 py-3 border rounded-lg text-center transition-colors ${
-                              selectedAmount === amount.value
-                                ? 'bg-green-500 text-white border-green-500'
-                                : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
-                            }`}
-                          >
-                            {amount.label}
-                          </button>
-                        ))}
-                      </div>
-                      <div>
-                        <label className="block text-gray-700 mb-2">Jumlah Lain</label>
-                        <div className="relative">
-                          <span className="absolute left-0 top-0 flex items-center h-full pl-3 text-gray-600">Rp</span>
-                          <input 
-                            type="text" 
-                            value={customAmount}
-                            onChange={handleCustomAmountChange}
-                            className="w-full px-4 py-2 pl-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                            placeholder="Masukkan jumlah donasi"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <label className="flex items-center space-x-2">
-                        <input type="checkbox" className="h-4 w-4 text-primary focus:ring-primary" />
-                        <span className="text-gray-700">Masukkan ke Daftar Donatur</span>
-                      </label>
-                    </div>
-                    
-                    <div>
-                      <label className="block text-gray-700 mb-2">Metode Pembayaran</label>
-                      
-                      <div className="mb-4">
-                        <h4 className="font-medium text-gray-700 mb-2">E-Wallet</h4>
-                        <div className="grid grid-cols-4 gap-2">
-                          {paymentMethods.eWallet.map((method, index) => (
-                            <div key={`ewallet-${index}`} className="border rounded-md p-2 text-center hover:border-primary cursor-pointer">
-                              <img 
-                                src={method.image} 
-                                alt={method.name}
-                                className="h-6 mx-auto mb-1"
-                                onError={(e) => {
-                                  e.target.onerror = null;
-                                  e.target.src = `https://via.placeholder.com/60x30/e6f7ff/0066cc?text=${method.name}`;
-                                }}
-                              />
-                              <div className="text-xs">{method.name}</div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div className="mb-4">
-                        <h4 className="font-medium text-gray-700 mb-2">Digital Bank</h4>
-                        <div className="grid grid-cols-4 gap-2">
-                          {paymentMethods.digitalBank.map((method, index) => (
-                            <div key={`digital-${index}`} className="border rounded-md p-2 text-center hover:border-primary cursor-pointer">
-                              <img 
-                                src={method.image} 
-                                alt={method.name}
-                                className="h-6 mx-auto mb-1"
-                                onError={(e) => {
-                                  e.target.onerror = null;
-                                  e.target.src = `https://via.placeholder.com/60x30/e6f7ff/0066cc?text=${method.name}`;
-                                }}
-                              />
-                              <div className="text-xs">{method.name}</div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div className="mb-4">
-                        <h4 className="font-medium text-gray-700 mb-2">Virtual Account</h4>
-                        <div className="grid grid-cols-4 gap-2">
-                          {paymentMethods.virtualAccount.map((method, index) => (
-                            <div key={`va-${index}`} className="border rounded-md p-2 text-center hover:border-primary cursor-pointer">
-                              <img 
-                                src={method.image} 
-                                alt={method.name}
-                                className="h-6 mx-auto mb-1"
-                                onError={(e) => {
-                                  e.target.onerror = null;
-                                  e.target.src = `https://via.placeholder.com/60x30/e6f7ff/0066cc?text=${method.name}`;
-                                }}
-                              />
-                              <div className="text-xs">{method.name}</div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="pt-4">
-                      <button 
-                        type="button"
-                        className="w-full bg-green-500 text-white font-medium py-3 rounded-md hover:bg-green-600 transition-colors flex items-center justify-center"
-                      >
-                        <FaHeart className="mr-2" /> Konfirmasi Donasi
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      )}
     </div>
   );
 };

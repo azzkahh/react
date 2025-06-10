@@ -54,7 +54,7 @@ const ProgramOrangTuaAsuh = () => {
             <h3 className="text-xl font-semibold text-gray-800 mb-3">Manfaat Program</h3>
             <ul className="list-disc pl-6 mb-6 text-gray-700 space-y-2">
               <li>Memberikan pendidikan berkualitas bagi anak-anak kurang mampu</li>
-              <li>Membantu memenuhi kebutuhan dasar seperti pakaian, makanan, dan tempat tinggal</li>
+              <li>Membantu memenuhi kebutuhan dasar seperti pakaian, makanan.</li>
               <li>Membantu pengembangan karakter dan potensi santri</li>
               <li>Memberikan kesempatan santri untuk meraih cita-cita</li>
               <li>Memperoleh laporan berkala tentang perkembangan santri asuh Anda</li>
