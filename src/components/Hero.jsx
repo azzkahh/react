@@ -1,94 +1,99 @@
 import { motion } from 'framer-motion';
-import { FaBookReader, FaHandsHelping, FaMoneyBillWave } from 'react-icons/fa';
+import { FaBookReader, FaHandsHelping, FaMoneyBillWave, FaQuran, FaMosque } from 'react-icons/fa';
+// Import gambar placeholder
+import placeholderImage from '../assets/placeholder.jpg';
+import { Link } from 'react-router-dom';
+import { FaHandHoldingHeart } from 'react-icons/fa';
 
 const Hero = () => {
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8 }
+    }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { 
+        type: "spring",
+        stiffness: 100,
+        damping: 12
+      }
+    }
+  };
+
+  // Fungsi untuk menangani error gambar
+  const handleImageError = (e) => {
+    console.log("Gambar tidak ditemukan, menggunakan placeholder");
+    e.target.onerror = null;
+    // Gunakan gambar dari Unsplash sebagai fallback terakhir
+    e.target.src = "https://source.unsplash.com/random/1200x800/?islamic,mosque,education,charity";
+  };
+
   return (
-    <div className="min-h-screen relative bg-gradient-to-b from-accent/20 to-white pt-20">
-      <div className="container mx-auto px-4 py-20 flex flex-col lg:flex-row items-center">
-        {/* Left content */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="w-full lg:w-1/2 mb-12 lg:mb-0"
-        >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight mb-6">
-            Membangun Masa Depan <span className="text-secondary">Lebih Baik</span>
-          </h1>
-          <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-lg leading-relaxed">
-            Yayasan Karya Muda Sunan Drajat, hadir sebagai perwujudan rasa syukur atas karunia Allah dan sebagai jawaban atas kesadaran sesama hamba Allah untuk mengambil peran sebagai "khalifah"Nya dalam menebar manfaat dari karunia yang Allah hadirkan kepada hamba Nya.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a href="#programs" className="btn btn-primary">
-              Program Kami
-            </a>
-            <a href="#donate" className="btn btn-outline">
-              Dukung Kami
-            </a>
-          </div>
+    <section className="min-h-screen flex items-center bg-gradient-to-b from-white to-accent/10 pt-20">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          {/* Left content - Text */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-full lg:w-1/2"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+              Yayasan Karya Muda Sunan Drajat
+            </h1>
+            <p className="text-lg text-gray-700 mb-8 leading-relaxed text-justify">
+            Yayasan Karya Muda Sunan Drajat, hadir sebagai perwujudan rasa syukur atas karunia Allah dan sebagai jawaban atas kesadaran sesama hamba Allah untuk mengambil peran sebagai "khalifah" nya dalam menebar manfaat dari karunia yang Allah hadirkan kepada hambanya.
+            </p >
+            <div className="flex flex-wrap gap-4">
+              <Link
+                to="/program-donasi"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-green-600 text-white font-medium hover:bg-green-700 transition-colors duration-200"
+              >
+                <FaHandHoldingHeart className="mr-2" />
+                 Yuk Berdonasi
+              </Link>
+            </div>
+          </motion.div>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center"
-            >
-              <FaBookReader className="text-4xl text-primary mb-3" />
-              <h3 className="font-bold text-lg mb-1">Bidang Pendidikan</h3>
-              <p className="text-gray-600 text-sm">Pondok Tahfidz Sunan Drajat, Parenting & Majelis Ta'lim</p>
-            </motion.div>
-            
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center"
-            >
-              <FaHandsHelping className="text-4xl text-primary mb-3" />
-              <h3 className="font-bold text-lg mb-1">Bidang Sosial</h3>
-              <p className="text-gray-600 text-sm">Bakti sosial dan pelayanan bantuan bagi masyarakat sekitar</p>
-            </motion.div>
-            
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center"
-            >
-              <FaMoneyBillWave className="text-4xl text-primary mb-3" />
-              <h3 className="font-bold text-lg mb-1">Bidang Muamalah</h3>
-              <p className="text-gray-600 text-sm">Memprakarsai bidang usaha dan keahlian sebagai bekal beribadah</p>
-            </motion.div>
-          </div>
-        </motion.div>
-
-        {/* Right content - Image */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full lg:w-1/2 relative"
-        >
-          <div className="relative z-10 overflow-hidden rounded-xl shadow-2xl">
-            <img 
-              src="/hero-image.jpg" 
-              alt="Yayasan Karya Muda Sunan Drajat" 
-              className="w-full h-auto object-cover"
+          {/* Right content - Image */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, x: 20 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="w-full lg:w-1/2 relative"
+          >
+            <img
+              src="/yayasan-karya-muda.jpg"
+              alt="Yayasan Karya Muda Sunan Drajat"
+              className="w-full h-auto rounded-2xl shadow-xl"
               onError={(e) => {
-                e.target.onerror = null; 
-                e.target.src = "https://placehold.co/600x400?text=Yayasan+Karya+Muda";
+                e.target.onerror = null;
+                e.target.src = "https://placehold.co/800x600?text=Yayasan+Karya+Muda";
               }}
             />
-          </div>
-          
-          {/* Decorative elements */}
-          <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-primary/10 rounded-full -z-10"></div>
-          <div className="absolute -top-10 -left-10 w-40 h-40 bg-secondary/10 rounded-full -z-10"></div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
-
-      {/* Wave separator */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-16 text-white">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C0,0,0,32,0,48C0,67.52,22.75,74.55,48.51,77.32,108.71,84.43,187.93,67.08,252,49.9,293.09,39.24,280.88,55.59,321.39,56.44Z" className="fill-white"></path>
-        </svg>
-      </div>
-    </div>
+    </section>
   );
 };
 

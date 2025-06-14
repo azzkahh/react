@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const ProgramOrangTuaAsuh = () => {
   // Sample data for santri profiles
@@ -47,8 +48,8 @@ const ProgramOrangTuaAsuh = () => {
           
           <div className="bg-white rounded-lg shadow-md p-6 mb-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Tentang Program Orang Tua Asuh</h2>
-            <p className="text-gray-700 mb-6 leading-relaxed">
-              Program pendampingan santri duafa program 3 thn – 6 thn, pilihan santri yaitu dapat melanjutkan santri lama atau santri baru yang disusulkan oleh Yayasan. Dukungan program berbentuk memberikan fasilitas biaya selama berkegiatan di pondok adapun besarannya 1,2 Jt / Bulan / Santri. Yang dapat pula dikelola oleh beberapa orang tua asuh (contoh 4 OTA mendampingi 1 orang santri = 300 rb / OTA).
+            <p className="text-gray-700 mb-6 leading-relaxed text-justify">
+              Program pendampingan santri duafa program 3 thn – 6 thn, pilihan santri yaitu dapat melanjutkan santri lama atau santri baru yang disusulkan oleh Yayasan. Dukungan program berbentuk memberikan fasilitas biaya selama berkegiatan di pondok adapun besarannya 1,2 Jt/Bulan/Santri. Yang dapat pula dikelola oleh beberapa orang tua asuh (contoh 4 Orang Tua Asuh mendampingi 1 orang santri = 300 rb / Orang Tua Asuh).
             </p>
             
             <h3 className="text-xl font-semibold text-gray-800 mb-3">Manfaat Program</h3>
@@ -59,32 +60,21 @@ const ProgramOrangTuaAsuh = () => {
               <li>Memberikan kesempatan santri untuk meraih cita-cita</li>
               <li>Memperoleh laporan berkala tentang perkembangan santri asuh Anda</li>
             </ul>
-
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">Cara Berpartisipasi</h3>
-            <p className="text-gray-700 mb-4 leading-relaxed">
-              Anda dapat berpartisipasi dengan berbagai cara:
-            </p>
-            <ol className="list-decimal pl-6 mb-6 text-gray-700 space-y-2">
-              <li>Pilih santri yang ingin Anda bantu dari profil di bawah ini</li>
-              <li>Pilih jenis dukungan yang ingin Anda berikan (bulanan atau tahunan)</li>
-              <li>Isi formulir pendaftaran dan lakukan pembayaran</li>
-              <li>Anda akan menerima update berkala tentang perkembangan santri asuh Anda</li>
-            </ol>
             
             <div className="flex flex-col md:flex-row md:space-x-4 mb-6">
               <div className="bg-blue-50 border border-blue-200 rounded-md p-4 mb-4 md:mb-0 md:w-1/2">
-                <h4 className="font-semibold text-primary mb-2">Donasi Bulanan</h4>
-                <p className="text-gray-700 mb-3">Rp 500.000 / bulan</p>
+                <h4 className="font-semibold text-primary mb-2">4 Orang Tua Asuh Untuk 1 Santri</h4>
+                <p className="text-gray-700 mb-3">Rp 300.000 / 1 Orang Tua Asuh</p>
                 <ul className="list-disc pl-5 text-gray-700 text-sm space-y-1">
                   <li>Biaya pendidikan</li>
-                  <li>Perlengkapan sekolah</li>
+                  <li>Perlengkapan pesantren</li>
                   <li>Makanan bergizi</li>
-                  <li>Tempat tinggal</li>
+                  <li>Kebutuhan santri</li>
                 </ul>
               </div>
               <div className="bg-green-50 border border-green-200 rounded-md p-4 md:w-1/2">
-                <h4 className="font-semibold text-primary mb-2">Donasi Tahunan</h4>
-                <p className="text-gray-700 mb-3">Rp 5.000.000 / tahun</p>
+                <h4 className="font-semibold text-primary mb-2">1 Orang Tua Asuh Untuk 1 Santri</h4>
+                <p className="text-gray-700 mb-3">Rp 1.200.000 / 1 Orang Tua Asuh</p>
                 <ul className="list-disc pl-5 text-gray-700 text-sm space-y-1">
                   <li>Semua manfaat donasi bulanan</li>
                   <li>Biaya kesehatan</li>
@@ -98,65 +88,49 @@ const ProgramOrangTuaAsuh = () => {
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">Santri Yang Membutuhkan Bantuan</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {santriProfiles.map((santri) => (
-              <motion.div 
+              <Link 
                 key={santri.id}
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
+                to={`/santri-detail/${santri.id}`}
+                className="block transition-transform hover:-translate-y-1 duration-300"
               >
-                <div className="p-5">
-                  <div className="flex justify-center mb-4">
-                    <div className="w-32 h-32 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
-                      <img 
-                        src={`/santri-placeholder-${santri.id}.png`} 
-                        alt={`Santri ${santri.name}`}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.target.onerror = null;
-                          e.target.src = "https://via.placeholder.com/150/eee/999?text=Santri";
-                        }}
-                      />
+                <motion.div 
+                  whileHover={{ y: -5 }}
+                  className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer h-full"
+                >
+                  <div className="p-5">
+                    <div className="flex justify-center mb-4">
+                      <div className="w-32 h-32 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+                        <img 
+                          src={`/santri-placeholder-${santri.id}.png`} 
+                          alt={`Santri ${santri.name}`}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = "https://via.placeholder.com/150/eee/999?text=Santri";
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-semibold text-primary text-center mb-2">
+                      {santri.name}
+                    </h3>
+                    <p className="text-gray-700 text-center mb-4">
+                      {santri.age} tahun, Kelas {santri.grade}
+                    </p>
+                    <div className="border-t border-dashed border-gray-200 pt-3">
+                      <p className="text-xs mt-2 italic text-gray-600">{santri.story}</p>
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-primary text-center mb-2">
-                    Nama Santri
-                  </h3>
-                  <p className="text-gray-700 text-center mb-4">
-                    Bio Data Santri
-                  </p>
-                  <div className="border-t border-dashed border-gray-200 pt-3">
-                    <ul className="text-gray-600 text-sm space-y-1">
-                      <li>Umur: {santri.age} tahun</li>
-                      <li>Kelas: {santri.grade} SD</li>
-                      <li className="text-xs mt-2 italic">{santri.story}</li>
-                    </ul>
+                  <div className="bg-gray-50 p-4 text-center">
+                    <span className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors text-sm font-medium inline-block">
+                      Jadi Orang Tua Asuh
+                    </span>
                   </div>
-                </div>
-                <div className="bg-gray-50 p-4 text-center">
-                  <button className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors text-sm font-medium">
-                    Jadi Orang Tua Asuh
-                  </button>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             ))}
           </div>
-
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Mulai Berpartisipasi</h2>
-            <p className="text-gray-700 mb-6 leading-relaxed">
-              Untuk menjadi orang tua asuh, silakan pilih santri yang ingin Anda bantu dan ikuti proses pendaftaran.
-              Anda juga dapat menghubungi kami untuk informasi lebih lanjut tentang program ini.
-            </p>
-            
-            <div className="flex justify-center space-x-4">
-              <button className="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors font-medium">
-                Daftar Sekarang
-              </button>
-              <button className="border border-primary text-primary px-6 py-3 rounded-md hover:bg-primary/10 transition-colors font-medium">
-                Hubungi Kami
-              </button>
-            </div>
-          </div>
-        </motion.div>
+         </motion.div>
       </div>
     </div>
   );

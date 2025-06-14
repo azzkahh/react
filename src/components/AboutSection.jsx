@@ -40,7 +40,7 @@ const AboutSection = () => {
             <motion.div variants={itemVariants}>
               <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">Dukung Program Kami</h3>
               <p className="text-gray-700 mb-4">
-                Dukung kami dengan bersedekah untuk memulyakan para santri tahfidz duafa dan mendukung program dakwah dengan pilihan program sedekah sebagai berikut:
+                Dukung kami dengan bersedekah untuk memuliakan para santri tahfidz duafa dan mendukung program dakwah dengan pilihan program sedekah sebagai berikut:
               </p>
               
               <ul className="space-y-4 mb-6">

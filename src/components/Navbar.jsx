@@ -100,9 +100,6 @@ const Navbar = () => {
                 className="block px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-green-50 hover:text-[#00A651] transition-colors"
               >
                 <div className="flex items-center">
-                  <span className="w-8 h-8 rounded-full bg-[#00A651]/10 flex items-center justify-center mr-3">
-                    <span className="text-[#00A651] text-sm"></span>
-                  </span>
                   Program Reguler
                 </div>
               </Link>
@@ -111,9 +108,6 @@ const Navbar = () => {
                 className="block px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-green-50 hover:text-[#00A651] transition-colors"
               >
                 <div className="flex items-center">
-                  <span className="w-8 h-8 rounded-full bg-[#00A651]/10 flex items-center justify-center mr-3">
-                    <span className="text-[#00A651] text-sm"></span>
-                  </span>
                   Program Orang Tua Asuh
                 </div>
               </Link>
@@ -192,9 +186,6 @@ const Navbar = () => {
                     className="flex items-center text-gray-700 hover:text-[#00A651] transition-colors py-2 px-4 rounded-md"
                     onClick={() => setIsOpen(false)}
                   >
-                    <span className="w-6 h-6 rounded-full bg-[#00A651]/10 flex items-center justify-center mr-3">
-                      <span className="text-[#00A651] text-xs"></span>
-                    </span>
                     Program Reguler
                   </Link>
                   <Link 
@@ -202,9 +193,6 @@ const Navbar = () => {
                     className="flex items-center text-gray-700 hover:text-[#00A651] transition-colors py-2 px-4 rounded-md"
                     onClick={() => setIsOpen(false)}
                   >
-                    <span className="w-6 h-6 rounded-full bg-[#00A651]/10 flex items-center justify-center mr-3">
-                      <span className="text-[#00A651] text-xs"></span>
-                    </span>
                     Program Orang Tua Asuh
                   </Link>
                 </motion.div>

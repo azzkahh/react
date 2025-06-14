@@ -32,7 +32,7 @@ const Footer = () => {
               <a href="http://Instagram.com/kmsdrajat" className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-pink-600 transition-colors">
                 <FaInstagram className="text-white" />
               </a>
-              <a href="https://www.tiktok.com/@kmsdrajat?_t=ZS-8x3fN8zHoNl&_r=1" className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-black transition-colors">
+              <a href="https://www.tiktok.com/@kmsdrajat" className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-black transition-colors">
                 <FaTiktok className="text-white" />
               </a>
             </div>
@@ -82,25 +82,25 @@ const Footer = () => {
               <li className="flex items-start">
                 <FaMapMarkerAlt className="text-blue-500 mr-3 mt-1 flex-shrink-0" />
                 <span className="text-gray-400">
-                  Jl. Sunan Drajat No. 123, Kecamatan Muda, Kota Karya, Indonesia 12345
+                  Jl. Tugu Jaya Kp. Cibogo RT 01 RW 06 Desa Tugu Jaya Cigombong, Kab Bogor - Jawa Barat 16110.
                 </span>
               </li>
               <li className="flex items-center">
                 <FaEnvelope className="text-blue-500 mr-3 flex-shrink-0" />
-                <a href="mailto:info@karyamuda.id" className="text-gray-400 hover:text-white transition-colors">
-                  info@karyamuda.id
+                <a href="mailto:foundationkmsdrajat@gmail.com" className="text-gray-400 hover:text-white transition-colors">
+                foundationkmsdrajat@gmail.com
                 </a>
               </li>
               <li className="flex items-center">
                 <FaPhone className="text-blue-500 mr-3 flex-shrink-0" />
-                <a href="tel:+6281234567890" className="text-gray-400 hover:text-white transition-colors">
-                  0812 3456 7890
+                <a href="tel:+6282112547550" className="text-gray-400 hover:text-white transition-colors">
+                  0821 1254 7550
                 </a>
               </li>
               <li className="flex items-center">
                 <FaWhatsapp className="text-blue-500 mr-3 flex-shrink-0" />
-                <a href="https://wa.me/6281234567890" className="text-gray-400 hover:text-white transition-colors">
-                  0812 3456 7890 (WhatsApp)
+                <a href="https://wa.me/6282112547550" className="text-gray-400 hover:text-white transition-colors">
+                  0821 1254 7550 (WhatsApp)
                 </a>
               </li>
             </ul>

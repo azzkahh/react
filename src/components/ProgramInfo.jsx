@@ -22,7 +22,7 @@ const ProgramInfo = () => {
               </div>
               <div>
                 <h3 className="text-2xl font-semibold text-gray-800 mb-3">Bidang Pendidikan</h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
+                <p className="text-justify text-gray-700 leading-relaxed mb-4">
                   Kami bergerak di bidang pendidikan dalam bentuk Pondok Tahfidz Sunan Drajat, Parenting & Majelis Ta'lim. 
                   Melalui program ini, kami berkomitmen untuk membangun generasi yang berilmu, berakhlak mulia, dan hafal Al-Qur'an.
                 </p>
@@ -44,7 +44,7 @@ const ProgramInfo = () => {
               </div>
               <div>
                 <h3 className="text-2xl font-semibold text-gray-800 mb-3">Bidang Sosial & Kemasyarakatan</h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
+                <p className="text-justify text-gray-700 leading-relaxed mb-4">
                   Kami aktif dalam bidang sosial & kemasyarakatan, dalam bentuk bakti sosial dan pelayanan bantuan bagi masyarakat sekitar. 
                   Program ini bertujuan untuk membantu meringankan beban saudara-saudara kita yang membutuhkan.
                 </p>
@@ -66,7 +66,7 @@ const ProgramInfo = () => {
               </div>
               <div>
                 <h3 className="text-2xl font-semibold text-gray-800 mb-3">Bidang Muamalah</h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
+                <p className="text-justify text-gray-700 leading-relaxed mb-4">
                   Kami memprakarsai bidang-bidang usaha dan keahlian yang mampu menjadi bekal dalam beribadah. 
                   Melalui program ini, kami berupaya mengembangkan kemandirian ekonomi dan keterampilan yang bermanfaat bagi masyarakat.
                 </p>
