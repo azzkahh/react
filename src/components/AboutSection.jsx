@@ -29,32 +29,7 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-24 bg-white">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Tentang Yayasan Kami</h2>
-          <p className="text-lg text-gray-700 leading-relaxed">
-            Yayasan Karya Muda Sunan Drajat didirikan dengan visi untuk membangun lingkungan
-            yang berkelanjutan, memberdayakan komunitas, dan melestarikan kearifan lokal melalui
-            pendekatan inovatif dan ramah lingkungan.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div className="relative">
-            <div className="relative z-10 overflow-hidden rounded-lg shadow-xl">
-              <img 
-                src="/about-image.jpg" 
-                alt="Kegiatan Yayasan" 
-                className="w-full h-auto" 
-                onError={(e) => {
-                  e.target.onerror = null; 
-                  e.target.src = "https://placehold.co/600x400?text=Kegiatan+Yayasan";
-                }}
-              />
-            </div>
-            <div className="absolute -top-6 -left-6 w-36 h-36 bg-primary/10 rounded-full -z-10"></div>
-            <div className="absolute -bottom-6 -right-6 w-28 h-28 bg-secondary/10 rounded-full -z-10"></div>
-          </div>
-
+        <div className="max-w-3xl mx-auto">
           <motion.div 
             ref={ref}
             variants={containerVariants}
@@ -117,7 +92,6 @@ const AboutSection = () => {
             </motion.div>
           </motion.div>
         </div>
-
       </div>
     </section>
   );

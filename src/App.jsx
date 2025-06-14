@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import AboutSection from './components/AboutSection'
 import ProgramsSection from './components/ProgramsSection'
 import ProgramInfo from './components/ProgramInfo'
 import Footer from './components/Footer'
@@ -26,7 +25,6 @@ function HomePage() {
     <>
       <Hero />
       <ProgramInfo />
-      <AboutSection />
       <ProgramsSection />
     </>
   )

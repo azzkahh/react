@@ -137,7 +137,7 @@ const Navbar = () => {
                 : 'text-white/90 hover:text-white hover:bg-white/10'
             }`}
           >
-            <FaFileAlt className="mr-2" /> Implementasi
+            <FaFileAlt className="mr-2" /> Laporan
           </Link>
         </div>
 
@@ -224,7 +224,7 @@ const Navbar = () => {
               className="flex items-center text-gray-800 font-medium hover:bg-blue-50 hover:text-[#00A651] transition-colors py-3 px-4 rounded-lg"
               onClick={() => setIsOpen(false)}
             >
-              <FaFileAlt className="mr-3 text-[#00A651]" /> Implementasi
+              <FaFileAlt className="mr-3 text-[#00A651]" /> Laporan
             </Link>
           </div>
         </motion.div>

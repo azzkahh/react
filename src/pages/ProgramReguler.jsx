@@ -124,7 +124,7 @@ const ProgramReguler = () => {
               <li>Wakaf Quran Terjemah - menyediakan sarana belajar yang diperbarui secara periodik</li>
             </ul>
 
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">JADWAL KEGIATAN REGULER (Senin - Sabtu)</h3>
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Jadwal Kegiatan Reguler (Senin - Sabtu)</h3>
             <div className="overflow-x-auto mb-6">
               <table className="min-w-full bg-white border border-gray-200">
                 <thead>
@@ -247,7 +247,7 @@ const ProgramReguler = () => {
               </table>
             </div>
             
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">JADWAL KEGIATAN HARI AHAD</h3>
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Jadwal Kegiatan Hari Ahad</h3>
             <div className="overflow-x-auto mb-6">
               <table className="min-w-full bg-white border border-gray-200">
                 <thead>

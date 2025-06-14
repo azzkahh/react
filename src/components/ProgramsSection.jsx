@@ -79,7 +79,10 @@ const ProgramsSection = () => {
     <section id="programs" className="py-24 bg-gradient-to-b from-white to-accent/10">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Program Kami</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Dukung Program Kami</h2>
+          <p className="text-gray-700 text-lg mb-6">
+            Dukung kami dengan bersedekah untuk memulyakan para santri tahfidz duafa dan mendukung program dakwah dengan pilihan program sedekah sebagai berikut:
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -156,6 +159,21 @@ const ProgramsSection = () => {
             </motion.div>
           </div>
         </div>
+        
+        {/* Added commitment and gratitude message */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="max-w-3xl mx-auto text-center mt-16 bg-white p-6 rounded-xl shadow-md"
+        >
+          <p className="text-gray-700 mb-4">
+            Insya Allah setiap program akan kami laporkan secara berkala baik dalam bentuk visualisasi kegiatan ataupun alokasi distribusi donasi.
+          </p>
+          <p className="text-gray-700 italic">
+            "Semoga segala bentuk partisipasi dan dukungan dalam program ini Allah catat sebagai Amalan yang abadi, dan menjadi saksi di yaumil akhir Insya Allah, atas segala dukungan dan partisipasinya kami ucapkan Jazakallahu khairon katsiron."
+          </p>
+        </motion.div>
       </div>
     </section>
   );
